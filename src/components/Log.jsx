@@ -1,18 +1,8 @@
-const initialLog = [
-    {
-        squares: [],
-        operation: 'sum',
-        result: 0,
-    },
-];
-
-export default function Log() {
+export default function Log({ turns }) {
     return (
         <ol id="log">
-            <li>
-                <span>Player 1</span>
-                <span>Player 2</span>
-            </li>
+            {turns.map(turn => <li key={'${turn.square.row}${turn.square.col}'}>
+                {turn.player} selected {turn.square.row}, {turn.square.col}</li>)}
         </ol>
     );
 }
